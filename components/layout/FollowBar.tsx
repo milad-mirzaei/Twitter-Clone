@@ -10,11 +10,6 @@ const FollowBar = () => {
   if (users.length === 0) {
     return null;
   }
-  const router=useRouter();
-
-  const onclick=(userId:string)=>{
-    router.push(`/users/${userId}`)
-  }
 
 
   return (
@@ -23,7 +18,7 @@ const FollowBar = () => {
         <h2 className="text-white text-xl font-semibold">Who to follow</h2>
         <div className="flex flex-col gap-1 mt-4">
           {users.map((user: Record<string, any>) => (
-            <div key={user.id} onClick={()=>onclick(user.id)} className="flex flex-row py-2 px-2 rounded-2xl hover:bg-gray-50 hover:cursor-pointer gap-4 hover:gap-5 transition-all">
+            <div key={user.id} className="flex flex-row py-2 px-2 rounded-2xl hover:bg-gray-50 hover:cursor-pointer gap-4 hover:gap-5 transition-all">
               <Avatar userId={user.id} />
               <div className="flex flex-col">
                 <p className="text-neutral-700 font-semibold hover:cursor-pointer hover:underline text-sm">{user.name}</p>
